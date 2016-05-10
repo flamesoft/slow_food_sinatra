@@ -4,7 +4,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'dm-rspec'
-require 'dm-rspec'
+
 
 RSpec.configure do |config|
 
