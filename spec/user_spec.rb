@@ -1,5 +1,5 @@
 require './lib/helpers/data_mapper.rb'
-require './lib/models/model.rb'
+require './lib/models/user.rb'
 
 describe User do
   it { is_expected.to have_property :id }
