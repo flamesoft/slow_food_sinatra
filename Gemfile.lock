@@ -149,8 +149,10 @@ DEPENDENCIES
   cucumber
   data_mapper
   database_cleaner
+  dm-migrations
   dm-postgres-adapter
   dm-rspec
+  do_postgres
   dotenv
   launchy
   pg
