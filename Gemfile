@@ -26,6 +26,7 @@ group :development, :test do
   gem 'dotenv'
   gem 'cucumber'
   gem 'rspec'
+  gem 'addressable','2.4'
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'dm-rspec'
