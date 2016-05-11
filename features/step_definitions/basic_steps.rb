@@ -20,7 +20,9 @@ Then(/^I should be on the registration page$/) do
 end
 
 Given(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
-  fill_in(field, with: value)
+  within("form#register_form") do
+    fill_in(field, with: value)
+  end
 end
 
 Given(/^I click on the "([^"]*)" button$/) do |button|
