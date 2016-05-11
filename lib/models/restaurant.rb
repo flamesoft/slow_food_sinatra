@@ -1,4 +1,3 @@
-require './lib/helpers/data_mapper.rb'
 class Restaurant
   include DataMapper::Resource
 
