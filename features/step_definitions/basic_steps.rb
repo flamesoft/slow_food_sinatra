@@ -1,3 +1,8 @@
+Given(/^there is a User with username "([^"]*)" and password "([^"]*)"$/) do |username, password|
+  @user = User.create(username: username, password: password)
+end
+
+
 Given(/^I am on the "([^"]*)"$/) do |page|
   visit '/'
 end
@@ -14,16 +19,8 @@ Then(/^I should be on the registration page$/) do
   expect(current_path).to eq '/auth/register'
 end
 
-Given(/^I fill in my username in the "([^"]*)" field$/) do |field|
-
-end
-
-Given(/^I fill in my password in the "([^"]*)" field$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Given(/^I fill in my password again in the "([^"]*)" field$/) do |field|
-
+Given(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
+  fill_in(field, with: value)
 end
 
 Given(/^I click on the "([^"]*)" button$/) do |button|
