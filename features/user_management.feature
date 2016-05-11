@@ -6,3 +6,8 @@ Scenario: Allows a visitor to access a login page
   Given I am on the "home page"
   And I click on the "Log In" link
   Then I should be on the login page
+
+Scenario: Allows a visitor to access a registration page
+  Given I am on the "home page"
+  And I click on the "Sign Up" link
+  Then I should be on the registration page

@@ -9,3 +9,7 @@ end
 Then(/^I should be on the login page$/) do
   expect(current_path).to eq '/auth/login'
 end
+
+Then(/^I should be on the registration page$/) do
+  expect(current_path).to eq '/auth/register'
+end
