@@ -4,7 +4,12 @@ end
 
 
 Given(/^I am on the "([^"]*)"$/) do |page|
-  visit '/'
+  case page
+  when 'home page' then
+    visit '/'
+  when 'registration page' then
+    visit '/auth/register'
+  end
 end
 
 Given(/^I click on the "([^"]*)" link$/) do |link|
