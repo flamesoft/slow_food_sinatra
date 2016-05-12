@@ -69,10 +69,14 @@ class SlowFood < Sinatra::Base
     elsif params[:user][:username].eql? "" then
         flash[:error] = "User name can not be empty"
     elsif params[:user][:password].eql? params[:user][:confirm_password] then
-      user = User.create(username: params[:user][:username], password: params[:user][:password])
-      env['warden'].authenticate!
-      flash[:success] = "Successfully registered and logged in #{current_user.username}"
-      redirect '/'
+      if user=User.first(:username => params[:user][:username]).nil? then
+        user = User.create(username: params[:user][:username], password: params[:user][:password])
+        env['warden'].authenticate!
+        flash[:success] = "Successfully registered and logged in #{current_user.username}"
+        redirect '/'
+      else 
+        flash[:error] = "User name is taken"
+      end
     else
       flash[:error] = "Password mismatch"
     end
