@@ -64,8 +64,11 @@ class SlowFood < Sinatra::Base
   end
 
   post '/auth/register' do
-    #compare two passwords
-    if params[:user][:password].eql? params[:user][:confirm_password] then
+    if params[:user][:password].eql? "" then
+      flash[:error] = "Password can not be empty"
+    elsif params[:user][:username].eql? "" then
+        flash[:error] = "User name can not be empty"
+    elsif params[:user][:password].eql? params[:user][:confirm_password] then
       redirect '/auth/login'
     else
       flash[:error] = "Password mismatch"

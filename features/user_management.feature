@@ -39,3 +39,21 @@ Feature: As a visitor
     And I click on the "Enter" button
     Then I should be on the "home page"
     Then I should see "Successfully logged in"
+
+  Scenario: As a visitor
+    Given I am on the "registration page"
+    And I fill in "username" with "Jenny"
+    And I fill in "password" with ""
+    And I fill in "confirm_password" with ""
+    And I click on the "Submit" button
+    Then I should be on the registration page
+    Then I should see "Password can not be empty"
+
+  Scenario: As a visitor
+    Given I am on the "registration page"
+    And I fill in "username" with ""
+    And I fill in "password" with "password"
+    And I fill in "confirm_password" with "password2"
+    And I click on the "Submit" button
+    Then I should be on the registration page
+    Then I should see "User name can not be empty"
