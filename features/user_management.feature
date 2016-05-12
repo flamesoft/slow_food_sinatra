@@ -21,7 +21,8 @@ Feature: As a visitor
     And I fill in "password" with "password"
     And I fill in "confirm_password" with "password"
     And I click on the Submit button
-    Then I should be on the login page
+    Then I should be on the "home page"
+    Then I should see "Successfully registered and logged in"
 
   Scenario: Disallows a visitor to sign up on a registration page
     Given I am on the "registration page"
