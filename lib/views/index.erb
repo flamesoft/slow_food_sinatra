@@ -5,3 +5,11 @@
 <% else %>
   <p>No dishes in the system</p>
 <% end %>
+
+<% if @restaurants.any? %>
+  <% @restaurants.each do |restaurant| %>
+   <h1><%= restaurant[:name]%></h1>
+   <h1><%= restaurant[:address]%></h1>
+   <h1><%= restaurant[:description]%></h1>
+  <% end %>
+<% end %>
