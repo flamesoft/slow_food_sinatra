@@ -55,14 +55,13 @@ class SlowFood < Sinatra::Base
   end
 
   get '/auth/login' do
-    binding.pry
+    #binding.pry
     erb :login
   end
 
   get '/auth/register' do
     erb :register
   end
-
 
   post '/auth/register' do
     binding.pry 

@@ -5,10 +5,12 @@ end
 
 Given(/^I am on the "([^"]*)"$/) do |page|
   case page
-  when 'home page' then
-    visit '/'
-  when 'registration page' then
-    visit '/auth/register'
+    when 'home page' then
+      visit '/'
+    when 'registration page' then
+      visit '/auth/register'
+    when 'login page' then
+      visit '/auth/login'
   end
 end
 
@@ -25,15 +27,17 @@ Then(/^I should be on the registration page$/) do
 end
 
 Given(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
-  within("form#register_form") do
-    fill_in(field, with: value)
-  end
+  fill_in(field, with: value)
 end
 
 Given(/^I click on the "([^"]*)" button$/) do |button|
   within("form#login_form") do
     click_link_or_button button
   end
+end
+
+Given(/^I click on the Submit button$/) do
+  click_link_or_button 'Submit'
 end
 
 Then(/^I should be on the "([^"]*)"$/) do |page|
