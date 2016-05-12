@@ -17,7 +17,7 @@ Feature: As a visitor
 
   Scenario: Allows a visitor to sign up on a registration page
     Given I am on the "registration page"
-    And I fill in "username" with "Jenny3"
+    And I fill in "username" with "Jenny7"
     And I fill in "password" with "password"
     And I fill in "confirm_password" with "password"
     And I click on the Submit button
@@ -26,7 +26,7 @@ Feature: As a visitor
 
   Scenario: Disallows a visitor to sign up on a registration page
     Given I am on the "registration page"
-    And I fill in "username" with "Jenny3"
+    And I fill in "username" with "Jenny5"
     And I fill in "password" with "password"
     And I fill in "confirm_password" with "password2"
     And I click on the Submit button

@@ -1,4 +1,7 @@
+require 'database_cleaner'
 Given(/^there is a User with username "([^"]*)" and password "([^"]*)"$/) do |username, password|
+  DatabaseCleaner.strategy = :truncation
+  DatabaseCleaner.clean
   @user = User.create(username: username, password: password)
 end
 
