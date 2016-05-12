@@ -55,6 +55,7 @@ class SlowFood < Sinatra::Base
   end
 
   get '/auth/login' do
+    binding.pry
     erb :login
   end
 
@@ -64,7 +65,7 @@ class SlowFood < Sinatra::Base
 
 
   post '/auth/register' do
-    #binding.pry
+    binding.pry 
     redirect '/auth/login'
   end
 
