@@ -64,8 +64,12 @@ class SlowFood < Sinatra::Base
   end
 
   post '/auth/register' do
-    #binding.pry 
-    redirect '/auth/login'
+    #compare two passwords
+    if params[:user][:password].eql? params[:user][:confirm_password] then
+      redirect '/auth/login'
+    else
+      flash[:error] = "Password mismatch"
+    end
   end
 
   post '/auth/login' do

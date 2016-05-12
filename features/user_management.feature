@@ -23,6 +23,15 @@ Feature: As a visitor
     And I click on the Submit button
     Then I should be on the login page
 
+  Scenario: Disallows a visitor to sign up on a registration page
+    Given I am on the "registration page"
+    And I fill in "username" with "Jenny2"
+    And I fill in "password" with "password"
+    And I fill in "confirm_password" with "password2"
+    And I click on the Submit button
+    Then I should be on the registration page
+    Then I should see "Password mismatch"
+
   Scenario: Allows a registered user to log in on a log in page
     Given I am on the "login page"
     And I fill in "username" with "Jenny"
