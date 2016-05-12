@@ -1,5 +1,5 @@
-<%if @dishes%>
-  <% @dishes.each do dish %>
+<% if @dishes.any? %>
+  <% @dishes.each do |dish| %>
    <h1><%= dish[:name]%></h1>
   <% end %>
 <% else %>
