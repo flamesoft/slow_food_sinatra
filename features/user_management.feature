@@ -24,9 +24,9 @@ Scenario: Allows a visitor to sign up on a registration page
   #Then show me the page
   Then I should be on the login page
 
-#  Scenario: Allows a registered user to log in on a log in page
-#    Given I am on the "login page"
-#    And I fill in "username" with "Jenny"
-#    And I fill in "password" with "password"
-#    And I click on the "Log In" button
-#    Then I should be on the "home page"
+Scenario: Allows a registered user to log in on a log in page
+    Given I am on the "login page"
+    And I fill in "username" with "Jenny"
+    And I fill in "password" with "password"
+    And I click on the "Log In" button
+    Then I should be on the "home page"

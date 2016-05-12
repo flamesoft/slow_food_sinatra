@@ -31,7 +31,9 @@ Given(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
 end
 
 Given(/^I click on the "([^"]*)" button$/) do |button|
-  click_link_or_button button
+  within("form#login_form") do
+    click_link_or_button button
+  end
 end
 
 Then(/^I should be on the "([^"]*)"$/) do |page|
