@@ -31,15 +31,17 @@ Given(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
 end
 
 Given(/^I click on the "([^"]*)" button$/) do |button|
-  within("form#login_form") do
-    click_link_or_button button
-  end
+  click_link_or_button button
 end
 
 Given(/^I click on the Submit button$/) do
   click_link_or_button 'Submit'
 end
 
-Then(/^I should be on the "([^"]*)"$/) do |page|
-  expect(current_path).to eq '/auth/login'
+Then(/^I should be on the "([^"]*)"$/) do |arg1|
+  expect(current_path).to eq '/'
+end
+
+Then(/^I should see "([^"]*)"$/) do |arg1|
+  expect(page).to have_text(arg1)
 end

@@ -27,5 +27,6 @@ Feature: As a visitor
     Given I am on the "login page"
     And I fill in "username" with "Jenny"
     And I fill in "password" with "password"
-    And I click on the "Log In" button
+    And I click on the "Enter" button
     Then I should be on the "home page"
+    Then I should see "Successfully logged in"
