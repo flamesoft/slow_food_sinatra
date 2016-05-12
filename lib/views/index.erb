@@ -1,0 +1,7 @@
+<%if @dishes%>
+  <% @dishes.each do dish %>
+   <h1><%= dish[:name]%></h1>
+  <% end %>
+<% else %>
+  <p>No dishes in the system</p>
+<% end %>

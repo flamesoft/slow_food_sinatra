@@ -51,6 +51,7 @@ class SlowFood < Sinatra::Base
   end
 
   get '/' do
+    @dish = Dish.all 
     erb :index
   end
 
@@ -74,7 +75,7 @@ class SlowFood < Sinatra::Base
         env['warden'].authenticate!
         flash[:success] = "Successfully registered and logged in #{current_user.username}"
         redirect '/'
-      else 
+      else
         flash[:error] = "User name is taken"
       end
     else
