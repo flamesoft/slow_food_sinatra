@@ -65,6 +65,11 @@ class SlowFood < Sinatra::Base
     erb :register
   end
 
+  post '/' do
+    order_item = Order_item.create(quantity: params[:order_item][:quantity], dish_id: params[:order_item][:dish_id])
+    flash[:success] = "You have 1 dish in your cart."
+  end
+
   post '/auth/register' do
     if params[:user][:password].eql? "" then
       flash[:error] = "Password can not be empty"
