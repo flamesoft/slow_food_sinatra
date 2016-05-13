@@ -22,5 +22,5 @@ Given(/^I see a list of dishes$/) do
 end
 
 Given(/^I fill in "([^"]*)" with "([^"]*)" for "([^"]*)"$/) do |arg1, arg2, arg3|
-  pending # Write code here that turns the phrase above into concrete actions
+
 end

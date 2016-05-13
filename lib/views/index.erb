@@ -1,11 +1,15 @@
 <% if @dishes.any? %>
   <form action="/" method="post" id="order_form">
-    <% @dishes.each do |dish| %>
-      <h1><%= dish[:name]%></h1>
-      <input type:"hidden" name="order_item[:dish_id]" value="dish[:id]" /> 
-      <input type="text" name="order_item[quantity]" id="Quantity"/>
-      <input type="submit" value="Order" id="order"/>
-    <% end %>
+    <ul>
+      <% @dishes.each do |dish| %>
+          <li id = "<%= dish[:name]%>">
+            <h1><%= dish[:name]%></h1>
+            <input type:"hidden" name="order_item[:dish_id]" value="dish[:id]" />
+            <input type="text" name="order_item[quantity]" id="Quantity"/>
+            <input type="submit" value="Add" id="order"/>
+          </li>
+      <% end %>
+    </ul>
   </form>
 <% else %>
   <p>No dishes in the system</p>
