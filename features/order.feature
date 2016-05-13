@@ -11,5 +11,5 @@ Feature: As a logged-in user
   Scenario: Allows a user to add 1 dish to an order
     Given I am on the "home page"
     And I fill in "Quantity" with "1"
-    And I click on the Order button
-    Then I should see "You have 1 dish in your cart"
+    And I click on the "Order" button
+    Then I should see "You have added 1 dish in your cart"
