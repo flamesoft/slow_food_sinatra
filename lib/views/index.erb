@@ -1,7 +1,11 @@
 <% if @dishes.any? %>
-  <% @dishes.each do |dish| %>
-   <h1><%= dish[:name]%></h1>
-  <% end %>
+  <form action="/" method="post" id="order_form">
+    <% @dishes.each do |dish| %>
+      <h1><%= dish[:name]%></h1>
+      <input type="text" name="Quantity" id="Quantity"/>
+      <input type="submit" value="Order" id="order"/>
+    <% end %>
+  </form>
 <% else %>
   <p>No dishes in the system</p>
 <% end %>
