@@ -13,6 +13,9 @@ Background:
 Scenario: Allows a visitor to the home page to see a list of dishes
   Given I am on the "home page"
   Then I should see "Sushi of the day"
+  And I should see "Yakiniku"
+  And I should see "Bento box"
+  And I should see "Matcha Icecream"
 
 Scenario: Display "no dishes message" if no dishes have been created
   Given there are no dishes in the system
