@@ -4,7 +4,8 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'dm-rspec'
-
+require 'coveralls'
+Coveralls.wear!
 
 RSpec.configure do |config|
 
