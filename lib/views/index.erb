@@ -1,5 +1,5 @@
 <% if @dishes.any? %>
-  <form action="/" method="post" id="order_form">
+  <form action="/order" method="post" id="order_form">
     <ul>
       <% @dishes.each do |dish| %>
           <li id = "<%= dish[:name]%>">

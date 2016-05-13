@@ -21,6 +21,14 @@ Given(/^I see a list of dishes$/) do
   }
 end
 
-Given(/^I fill in "([^"]*)" with "([^"]*)" for "([^"]*)"$/) do |arg1, arg2, arg3|
+Given(/^I fill in "([^"]*)" with "([^"]*)" for "([^"]*)"$/) do |quantity_box, quantity, dish|
+  within("#{dish}") do
+    fill_in(quantity_box, with: quantity)
+  end
+end
 
+Given(/^I click on the "([^"]*)" button for "([^"]*)"$/) do |add_button, dish|
+  within("#{dish}") do
+    click_link_or_button(add_button)
+  end
 end

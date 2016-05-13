@@ -13,7 +13,6 @@ Feature: As a logged-in user
 
   Scenario: Allows a user to add 1 dish to an order
     Given I am on the "home page"
-    And I see a list of dishes
     And I fill in "Quantity" with "1" for "Yakiniku"
-    And I click on the "Add" button
+    And I click on the "Add" button for "Yakiniku"
     Then I should see "You have added 1 Yakiniku"
