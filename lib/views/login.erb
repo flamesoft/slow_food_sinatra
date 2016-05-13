@@ -1,5 +1,17 @@
 <form action="/auth/login" method="post" id="login_form">
-  <p>Username: <input type="text" name="user[username]" id="username"/></p>
-  <p>Password: <input type="password" name="user[password]" id="password"/></p>
-  <input type="submit" value="Enter" />
+  <div class="row">
+   <div class="medium-4 columns">
+    <p>Username: <input type="text" name="user[username]" id="username"/></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns">
+      <p>Password: <input type="password" name="user[password]" id="password"/></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns">
+      <input type="submit" value="Enter" class="success button"/>
+    </div>
+  </div>
 </form>
