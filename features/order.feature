@@ -15,4 +15,5 @@ Feature: As a logged-in user
     Given I am on the "home page"
     And I fill in "Quantity" with "1" for "Yakiniku"
     And I click on the "Add" button for "Yakiniku"
+    #Then show me the page
     Then I should see "You have added 1 Yakiniku"

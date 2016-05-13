@@ -66,6 +66,7 @@ class SlowFood < Sinatra::Base
   end
 
   post '/' do
+    binding.pry
     dish=Dish.first(:id => params[:order_item][:dish_id])
     order_item = Order_item.create(quantity: params[:order_item][:quantity], dish_id: params[:order_item][:dish_id])
     flash[:success] = "You have added #{order_item.quantity} #{dish.name}."
