@@ -1,4 +1,5 @@
-<form action="/admin" method="post" id="admin_form">
+<% if current_user %>
+  <form action="/admin" method="post" id="admin_form">
   <div class="row">
     <div class="medium-6 columns">
       <p>Restaurant Name: <input type="text" name="restaurant[name]" id="restaurant_name"/></p>
@@ -17,3 +18,22 @@
   <div class="medium-4 columns">
   <input type="submit" value="update_restaurant" class="success button"/>
 </form>
+<%else%>
+  <form action="/auth/login" method="post" id="admin_login_form">
+    <div class="row">
+     <div class="medium-4 columns">
+      <p>Username: <input type="text" name="user[username]" id="username"/></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-4 columns">
+        <p>Password: <input type="password" name="user[password]" id="password"/></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-4 columns">
+        <input type="submit" value="Log in to admin page" class="success button"/>
+      </div>
+    </div>
+  </form>
+<%end%>

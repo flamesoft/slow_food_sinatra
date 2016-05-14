@@ -3,19 +3,15 @@ Feature: As the restaurant owner
   I would like to put a restaurant description, and address on my website.
 
 Background:
-  Given I am a logged-in user
-  Given that following dishes exist in the system
-  |name             |price  |
-  |Sushi of the day |89     |
-  |Yakiniku         |99     |
-  |Bento box        |115    |
-  |Matcha Icecream  |49     |
-
+  Given I am an admin user
 Scenario: Allows the owner to access an admin page
-  Given I am on the "home page"
-  And is logged in as "admin"
-  And I click on the "admin" button
-  Then I should be on the "admin page"
+  Given I am on the "admin page"
+  And I fill in "username" with "admin"
+  And I fill in "password" with "1234"
+  And I click on the Log in to admin page button
+  Then I should see "Welcome administrator"
+  And I should see "Restaurant Name"
+
 
 Scenario: Allows the owner to update restaurant name, description and address.
   Given I am on the admin page

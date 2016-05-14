@@ -109,7 +109,12 @@ class SlowFood < Sinatra::Base
     env['warden'].authenticate!
     flash[:success] = "Successfully logged in #{current_user.username}"
     if session[:return_to].nil?
-      redirect '/'
+      if current_user.admin == 1
+        flash[:success] = 'Welcome administrator'
+        redirect '/admin'
+      else
+        redirect '/'
+      end
     else
       redirect session[:return_to]
     end
