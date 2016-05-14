@@ -1,6 +1,18 @@
 <form action="/auth/register" method="post" id="register_form">
-  <p>Username: <input type="text" name="user[username]" id="username"/></p>
-  <p>Password: <input type="password" name="user[password]" id="password"/></p>
-  <p>Retype your password: <input type="password" name="user[confirm_password]" id="confirm_password"/></p>
-  <input type="submit" value="Submit" />
+  <div class="row">
+    <div class="medium-4 columns">
+      <p>Username: <input type="text" name="user[username]" id="username"/></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns">
+      <p>Password: <input type="password" name="user[password]" id="password"/></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns">
+      <p>Retype your password: <input type="password" name="user[confirm_password]" id="confirm_password"/></p>
+    </div>
+  </div>
+  <input type="submit" value="Submit" class="success button"/>
 </form>
