@@ -4,8 +4,8 @@
       <% @dishes.each do |dish| %>
           <li id = "<%= dish[:name]%>">
             <h1><%= dish[:name]%></h1>
-            <input type:"hidden" name="order_item[:dish_id]" value="dish[:id]" />
-            <input type="text" name="order_item[quantity]" id="<%='quantity_'.concat(dish[:name]).tr(' ','')%>"/>
+            <input type:"hidden" name="order_item[][dish_id]" value="<%=dish[:id]%>" />
+            <input type="text" name="order_item[][quantity]" id="<%='quantity_'.concat(dish[:name]).tr(' ','')%>"/>
             <input type="submit" value="Add" id="<%='add_'.concat(dish[:name]).tr(' ','')%>"/>
           </li>
       <% end %>

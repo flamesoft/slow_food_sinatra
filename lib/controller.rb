@@ -66,10 +66,19 @@ class SlowFood < Sinatra::Base
   end
 
   post '/' do
-    binding.pry
-    dish=Dish.first(:id => params[:order_item][:dish_id])
-    order_item = Order_item.create(quantity: params[:order_item][:quantity], dish_id: params[:order_item][:dish_id])
-    flash[:success] = "You have added #{order_item.quantity} #{dish.name}."
+    sum = params[:order_item].count
+    params[:order_item].each{
+      |item|
+      quantity = item['quantity'].nil? ? 0: item['quantity'].to_i
+      if item['quantity'].to_i > 0 then
+        dish_id = item['dish_id']
+        dish = Dish.first(:id => dish_id)
+        dish_name = dish.name
+        order_item = Order_item.create(quantity: quantity, dish_id: dish_id)
+        flash[:success] = "You have added #{quantity} #{dish_name}."
+      end
+    }
+    redirect '/'
   end
 
   post '/auth/register' do
