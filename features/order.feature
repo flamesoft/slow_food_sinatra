@@ -16,3 +16,12 @@ Feature: As a logged-in user
     And I fill in "quantity_Yakiniku" with "1"
     And I click on the "add_Yakiniku" button
     Then I should see "You have added 1 Yakiniku"
+
+  Scenario: Allows a user to add 2 sorts of dishes to an order
+    Given I am on the "home page"
+    And I fill in "quantity_Yakiniku" with "2"
+    And I click on the "add_Yakiniku" button
+    Then I should see "You have added 2 Yakiniku"
+    And I fill in "quantity_Bentobox" with "1"
+    And I click on the "add_Bentobox" button
+    Then I should see "You have added 1 Bento box"
