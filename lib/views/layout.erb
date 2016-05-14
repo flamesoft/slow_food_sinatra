@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sinatra Warden</title>
+    <title>Slow Food</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.1/foundation.min.css">
 
   </head>
   <body>
-    <h1>User authentication</h1>
-      <% if current_user %>
-      Logged in as <%= current_user.username %>
-        <p>
-          <a href="/auth/logout">Log Out</a>
-        </p>
-      <% else %>
-        <p>
-          <a href="/auth/login">Log In</a>
-          <a href="/auth/register">Sign Up</a>
-        </p>
-      <% end %>
-      <% if flash[:success] %>
-          <div style="color:green;">
-            <%= flash[:success] %>
-          </div>
-      <% end %>
+    <div class="row">
+      <h1>User authentication</h1>
+        <% if current_user %>
+        Logged in as <%= current_user.username %>
+          <p>
+            <a href="/auth/logout">Log Out</a>
+          </p>
+        <% else %>
+          <p>
+            <a href="/auth/login">Log In</a>
+            <a href="/auth/register">Sign Up</a>
+          </p>
+        <% end %>
+        <% if flash[:success] %>
+            <div style="color:green;">
+              <%= flash[:success] %>
+            </div>
+        <% end %>
 
-      <% if flash[:error] %>
-          <div style="color:red;">
-            <%= flash[:error] %>
-          </div>
-      <% end %>
+        <% if flash[:error] %>
+            <div style="color:red;">
+              <%= flash[:error] %>
+            </div>
+        <% end %>
 
       <%= yield %>
-      <script src='https://code.jquery.com/jquery-2.1.4.js'></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.1/foundation.js"></script>
+    </div>
+    <script src='https://code.jquery.com/jquery-2.1.4.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.1/foundation.js"></script>
 
   </body>
 </html>
