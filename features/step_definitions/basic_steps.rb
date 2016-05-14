@@ -14,6 +14,8 @@ Given(/^I am on the "([^"]*)"$/) do |page|
       visit '/auth/register'
     when 'login page' then
       visit '/auth/login'
+    when 'admin page' then
+      visit '/admin'
   end
 end
 

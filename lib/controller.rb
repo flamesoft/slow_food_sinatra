@@ -65,6 +65,10 @@ class SlowFood < Sinatra::Base
     erb :register
   end
 
+  get '/admin' do
+    erb :admin
+  end
+
   post '/' do
     sum = params[:order_item].count
     params[:order_item].each{
