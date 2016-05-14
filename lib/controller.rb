@@ -120,6 +120,10 @@ class SlowFood < Sinatra::Base
     end
   end
 
+  post '/admin' do
+    #To do: create Restaurant and give succss info afterwards
+  end
+
   get '/auth/logout' do
     env['warden'].raw_session.inspect
     env['warden'].logout
