@@ -1,12 +1,16 @@
+<form action="/checkout" method="post" id="checkout_form">
+  <input type="submit" value="Check out" id="check_out"/>
+</form>
+
 <% if @dishes.any? %>
   <form action="/" method="post" id="order_form">
     <ul>
       <% @dishes.each do |dish| %>
           <li id = "<%= dish[:name]%>">
             <h1><%= dish[:name]%></h1>
-            <input type:"hidden" name="order_item[:dish_id]" value="dish[:id]" />
-            <input type="text" name="order_item[quantity]" id="Quantity"/>
-            <input type="submit" value="Add" id="order"/>
+            <input type:"hidden" name="order_item[][dish_id]" value="<%=dish[:id]%>" />
+            <input type="text" name="order_item[][quantity]" id="<%='quantity_'.concat(dish[:name]).tr(' ','')%>"/>
+            <input type="submit" value="Add" id="<%='add_'.concat(dish[:name]).tr(' ','')%>"/>
           </li>
       <% end %>
     </ul>

@@ -25,3 +25,7 @@ Then(/^I should see "([^"]*)" and "([^"]*)"$/) do |string1, string2|
   expect(page).to have_text(string1)
   expect(page).to have_text(string2)
 end
+
+Then(/^I should see a check out button$/) do
+  find_button('Check out').visible?
+end

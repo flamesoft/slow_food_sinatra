@@ -25,3 +25,11 @@ Feature: As a logged-in user
     And I fill in "quantity_Bentobox" with "1"
     And I click on the "add_Bentobox" button
     Then I should see "You have added 1 Bento box"
+
+  Scenario: Display checkout button after a user has added 1 dish to an order
+    Given I am on the "home page"
+    And I fill in "quantity_Yakiniku" with "1"
+    And I click on the "add_Yakiniku" button
+    Then I should see "You have added 1 Yakiniku"
+    Then show me the page
+    Then I should see a check out button
