@@ -31,5 +31,14 @@ Feature: As a logged-in user
     And I fill in "quantity_Yakiniku" with "1"
     And I click on the "add_Yakiniku" button
     Then I should see "You have added 1 Yakiniku"
-    Then show me the page
     Then I should see a check out button
+
+  Scenario: Show order details after checkout
+    Given I am on the "home page"
+    And I fill in "quantity_Yakiniku" with "1"
+    And I click on the "add_Yakiniku" button
+    Then I should see "You have added 1 Yakiniku"
+    And I click on the "check_out" button
+    Then I should see "Thank you for your order"
+    Then I should see "Yakiniku"
+    Then I should see "Total price: 99 kr"
