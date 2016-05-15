@@ -15,7 +15,7 @@ class SlowFood < Sinatra::Base
   register Sinatra::Flash
   register Sinatra::Warden
   set :session_secret, "supersecret"
-
+  set :public_folder, 'public'
   #binding.pry
   #Create a test User
   if User.count == 0
