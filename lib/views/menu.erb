@@ -6,6 +6,7 @@
           <li id = "<%= dish[:name]%>">
             <input type="text" name="dish[name]" value="<%= dish[:name]%>" id="<%= dish[:name]%>"/>
             <input type="text" name="dish[price]" value="<%= dish[:price]%>"/>
+            <input type="text" name="dish[category]" value="<%= dish[:category]%>"/>
           </li>
       <% end %>
     </ul>
@@ -13,3 +14,17 @@
 <% else %>
   <p>No dishes in the system</p>
 <% end %>
+<form action="/menu_add" method="post" id="add_dish_form">
+  <ul>
+    <li>
+      <p>Dish name<input type="text" name="new_dish[name]"/></p>
+      <p>Dish price<input type="text" name="new_dish[price]"/></p>
+      <p>Dish category<input type="text" name="new_dish[category]"/></p>
+    </li>
+    <div class="row">
+      <div class="medium-4 columns">
+        <input type="submit" value="Add" class="success button"/>
+      </div>
+    </div>
+  </ul>
+</form>

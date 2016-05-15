@@ -74,6 +74,16 @@ class SlowFood < Sinatra::Base
     erb :menu
   end
 
+  post '/menu_add' do
+    dish = Dish.first_or_create({ :name => params[:new_dish][:name] }, {
+    :name => params[:new_dish][:name],
+    :price => params[:new_dish][:price],
+    :category => params[:new_dish][:category]
+    })
+    flash[:success] = "<br>You have added 1 dish - #{dish.category}:
+    #{dish.name}, #{dish.price} kr."
+  end
+
   post '/' do
     sum = params[:order_item].count
     params[:order_item].each{
