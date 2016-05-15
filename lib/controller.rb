@@ -121,7 +121,14 @@ class SlowFood < Sinatra::Base
   end
 
   post '/admin' do
-    #To do: create Restaurant and give succss info afterwards
+    Restaurant.all.each do |restaurant|
+      restaurant.destroy
+    end
+    restaurant = Restaurant.create(name: 'Flying Fish',
+    description: params[:restaurant][:description],
+    address: params[:restaurant][:address])
+    flash[:success] = "You have updated restaurant information for
+    restaurant #{restaurant.name}"
   end
 
   get '/auth/logout' do
