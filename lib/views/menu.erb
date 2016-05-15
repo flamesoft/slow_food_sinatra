@@ -1,0 +1,15 @@
+<h1>Add/Modify Menu</h1>
+<% if @dishes.any? %>
+  <form action="/menu" method="post" id="menu_form">
+    <ul>
+      <% @dishes.each do |dish| %>
+          <li id = "<%= dish[:name]%>">
+            <input type="text" name="dish[name]" value="<%= dish[:name]%>" id="<%= dish[:name]%>"/>
+            <input type="text" name="dish[price]" value="<%= dish[:price]%>"/>
+          </li>
+      <% end %>
+    </ul>
+  </form>
+<% else %>
+  <p>No dishes in the system</p>
+<% end %>
