@@ -9,6 +9,9 @@
           </li>
       <% end %>
     </ul>
+    <p>
+      Total price:<%= " " + @order.total_price.to_s + " "%>kr
+    </p>
 <% else %>
   <p>No dishes in the system</p>
 <% end %>

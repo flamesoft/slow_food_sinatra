@@ -76,7 +76,13 @@ class SlowFood < Sinatra::Base
   post '/checkout' do
     order = Order.first(:user_id => current_user.id)
     delivery_time = Time.now + 30 * 60
-    order.update(delivery_time: delivery_time.strftime("%H:%M"))
+    total_price = 0
+    order.order_items.each{
+      |item|
+      dish = Dish.first(:id => item.dish_id)
+      total_price = total_price + dish.price * item.quantity
+    }
+    order.update(delivery_time: delivery_time.strftime("%H:%M"), total_price:total_price)
     redirect '/checkout'
   end
 
