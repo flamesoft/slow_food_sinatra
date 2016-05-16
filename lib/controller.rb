@@ -91,10 +91,10 @@ class SlowFood < Sinatra::Base
   end
 
   post '/menu_add' do
-    dish = Dish.first_or_create({ :name => params[:new_dish][:name] }, {
-    :name => params[:new_dish][:name],
-    :price => params[:new_dish][:price],
-    :category => params[:new_dish][:category]
+    dish = Dish.first_or_create({ name: params[:new_dish][:name] }, {
+    name: params[:new_dish][:name],
+    price: params[:new_dish][:price],
+    category: params[:new_dish][:category]
     })
     flash[:success] = "<br>You have added 1 dish - #{dish.category}:
     #{dish.name}, #{dish.price} kr."
@@ -162,6 +162,7 @@ class SlowFood < Sinatra::Base
   end
 
   post '/admin' do
+    binding.pry
     Restaurant.all.each do |restaurant|
       restaurant.destroy
     end
