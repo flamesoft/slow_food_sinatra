@@ -1,13 +1,11 @@
 <h1>Order confirmation</h1>
 
-<% if @order.any? %>
+<% if @order %>
     <ul>
-      <% @order.each do |item| %>
-          <li id = "<%= dish[:name]%>">
-            <h1><%= dish[:name]%></h1>
-            <input type:"hidden" name="order_item[][dish_id]" value="<%=dish[:id]%>" />
-            <input type="text" name="order_item[][quantity]" id="<%='quantity_'.concat(dish[:name]).tr(' ','')%>"/>
-            <input type="submit" value="Add" id="<%='add_'.concat(dish[:name]).tr(' ','')%>"/>
+      <% @order.order_items.each do |item| %>
+        <% dish = Dish.first(:id => item.dish_id) %>
+          <li>
+            <p><%= item.quantity.to_s+ " " +dish.name %></p>
           </li>
       <% end %>
     </ul>

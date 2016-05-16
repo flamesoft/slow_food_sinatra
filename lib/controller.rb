@@ -57,7 +57,6 @@ class SlowFood < Sinatra::Base
   end
 
   get '/auth/login' do
-    #binding.pry
     erb :login
   end
 
@@ -67,6 +66,18 @@ class SlowFood < Sinatra::Base
 
   get '/admin' do
     erb :admin
+  end
+
+  get '/checkout' do
+    @order = Order.first(:user_id => current_user.id)
+    erb :checkout
+  end
+
+  post '/checkout' do
+    order = Order.first(:user_id => current_user.id)
+    delivery_time = Time.now + 30 * 60
+    order.update(delivery_time: delivery_time.strftime("%H:%M"))
+    redirect '/checkout'
   end
 
   get '/menu' do
@@ -87,8 +98,8 @@ class SlowFood < Sinatra::Base
   post '/' do
     sum = params[:order_item].count
     if sum > 0 then
-      delivery_time = Time.now + 30 * 60
-      order = Order.create(user_id: current_user.id, delivery_time: delivery_time.strftime("%H:%M"))
+      order = Order.create(user_id: current_user.id)
+    #  order = Order.create(user_id: current_user.id, delivery_time: delivery_time.strftime("%H:%M"))
       order_items = Array.new
       params[:order_item].each{
         |item|

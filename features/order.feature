@@ -39,6 +39,7 @@ Feature: As a logged-in user
     And I click on the "add_Yakiniku" button
     Then I should see "You have added 1 Yakiniku"
     And I click on the "check_out" button
+    Then show me the page
     Then I should see "Thank you for your order!"
     Then I should see "Yakiniku"
     Then I should see "Total price: 99 kr"
