@@ -4,17 +4,22 @@
 
 <% if @dishes.any? %>
   <form action="/" method="post" id="order_form">
-    <ul>
+    <table style="width:48%">
       <% @dishes.each do |dish| %>
-          <li id = "<%= dish[:name]%>">
-            <p><%= dish[:name]%>
-              <input type="hidden" name="order_item[][dish_id]" value="<%=dish[:id]%>" />
-              <input type="text" name="order_item[][quantity]" id="<%='quantity_'.concat(dish[:name]).tr(' ','')%>"/>
-              <input type="submit" value="Add" id="<%='add_'.concat(dish[:name]).tr(' ','')%>"/>
-            </p>
-          </li>
+        <tr>
+          <td><font size="5"><%= dish[:name]%></font></td>
+          <td>
+            <input type="hidden" name="order_item[][dish_id]" value="<%=dish[:id]%>" />
+          </td>
+          <td>
+            <input type="text" name="order_item[][quantity]" placeholder="Quantity" id="<%='quantity_'.concat(dish[:name]).tr(' ','')%>"/>
+          </td>
+          <td>
+            <input type="submit" value="Add" id="<%='add_'.concat(dish[:name]).tr(' ','')%>" class="success button"/>
+          </td>
+        </tr>
       <% end %>
-    </ul>
+
   </form>
 <% else %>
   <p>No dishes in the system</p>
