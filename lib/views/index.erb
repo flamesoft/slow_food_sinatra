@@ -7,10 +7,11 @@
     <ul>
       <% @dishes.each do |dish| %>
           <li id = "<%= dish[:name]%>">
-            <h1><%= dish[:name]%></h1>
-            <input type:"hidden" name="order_item[][dish_id]" value="<%=dish[:id]%>" />
-            <input type="text" name="order_item[][quantity]" id="<%='quantity_'.concat(dish[:name]).tr(' ','')%>"/>
-            <input type="submit" value="Add" id="<%='add_'.concat(dish[:name]).tr(' ','')%>"/>
+            <p><%= dish[:name]%>
+              <input type="hidden" name="order_item[][dish_id]" value="<%=dish[:id]%>" />
+              <input type="text" name="order_item[][quantity]" id="<%='quantity_'.concat(dish[:name]).tr(' ','')%>"/>
+              <input type="submit" value="Add" id="<%='add_'.concat(dish[:name]).tr(' ','')%>"/>
+            </p>
           </li>
       <% end %>
     </ul>
@@ -19,10 +20,17 @@
   <p>No dishes in the system</p>
 <% end %>
 
-<% if @restaurants.any? %>
-  <% @restaurants.each do |restaurant| %>
-   <h1><%= restaurant[:name]%></h1>
-   <h1><%= restaurant[:address]%></h1>
-   <h1><%= restaurant[:description]%></h1>
-  <% end %>
-<% end %>
+<footer class="footer">
+  <div class="row full-width">
+    <div class="small-12 medium-3 large-4 columns">
+
+    <% if @restaurants.any? %>
+      <% @restaurants.each do |restaurant| %>
+       <p><%= restaurant[:name]%></p>
+       <p><%= restaurant[:address]%></p>
+       <p><%= restaurant[:description]%></p>
+      <% end %>
+    <% end %>
+  </div>
+  </div>
+</footer

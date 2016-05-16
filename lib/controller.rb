@@ -19,8 +19,7 @@ class SlowFood < Sinatra::Base
   #binding.pry
   #Create a test User
   if User.count == 0
-   @user = User.create(username: "admin")
-   @user.password = "admin"
+   @user = User.create(username: "admin", password: "1234", admin: 1)
    @user.save
   end
 
