@@ -86,19 +86,26 @@ class SlowFood < Sinatra::Base
 
   post '/' do
     sum = params[:order_item].count
-#    if sum > 0 then
-#      Order.create(id)
-    params[:order_item].each{
-      |item|
-      quantity = item['quantity'].nil? ? 0: item['quantity'].to_i
-      if item['quantity'].to_i > 0 then
-        dish_id = item['dish_id']
-        dish = Dish.first(:id => dish_id)
-        dish_name = dish.name
-        order_item = Order_item.create(quantity: quantity, dish_id: dish_id)
-        flash[:success] = "<br>You have added #{quantity} #{dish_name}."
-      end
-    }
+    if sum > 0 then
+      delivery_time = Time.now + 30 * 60
+      order = Order.create(user_id: current_user.id, delivery_time: delivery_time.strftime("%H:%M"))
+      order_items = Array.new
+      params[:order_item].each{
+        |item|
+        quantity = item['quantity'].nil? ? 0: item['quantity'].to_i
+        if item['quantity'].to_i > 0 then
+          dish_id = item['dish_id']
+          dish = Dish.first(:id => dish_id)
+          dish_name = dish.name
+          order_item = OrderItem.create(quantity: quantity, dish_id: dish_id, order:order)
+          order_items.push(order_item)
+          flash[:success] = "<br>You have added #{quantity} #{dish_name}."
+        end
+      }
+      order.order_items = order_items
+      order.save
+    end
+
     redirect '/'
   end
 

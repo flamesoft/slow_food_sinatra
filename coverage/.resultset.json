@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/jennyfurstenbach/Desktop/Jenny/Slowfood/spec/order_spec.rb": [
+      "/Users/yanzhang/Documents/CraftAcademy/week4/slow_food_sinatra/spec/order_spec.rb": [
         1,
         2,
         2,
@@ -11,6 +11,6 @@
         null
       ]
     },
-    "timestamp": 1463378779
+    "timestamp": 1463378878
   }
 }
