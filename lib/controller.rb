@@ -16,7 +16,7 @@ class SlowFood < Sinatra::Base
   register Sinatra::Warden
   set :session_secret, "supersecret"
   set :public_folder, 'public'
-  #binding.pry
+
   #Create a test User
   if User.count == 0
    @user = User.create(username: "admin", password: "1234", admin: 1)
@@ -98,6 +98,7 @@ class SlowFood < Sinatra::Base
     })
     flash[:success] = "<br>You have added 1 dish - #{dish.category}:
     #{dish.name}, #{dish.price} kr."
+    redirect '/admin'
   end
 
   post '/' do
