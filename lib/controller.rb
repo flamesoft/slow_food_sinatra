@@ -87,7 +87,7 @@ class SlowFood < Sinatra::Base
   post '/' do
     sum = params[:order_item].count
 #    if sum > 0 then
-#      Order.create(order_id)
+#      Order.create(id)
     params[:order_item].each{
       |item|
       quantity = item['quantity'].nil? ? 0: item['quantity'].to_i
